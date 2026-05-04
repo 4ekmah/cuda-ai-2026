@@ -384,3 +384,51 @@ def layernorm_pycuda(input, gamma, beta, row_size, eps=1e-5):
 
 For simplicity, let's consider `row_size` is power of 2. Target data type is float32.
 One may use numba or C strings to write CUDA kernels.
+
+# Results
+## 1_gelu_omp (134217728 elements)
+|Group|Name|Result|Rank|
+|-----|----|------|----|
+|**FAST**|**FAST**|**0.0879**|**-**|
+|**REF**|**REF**|**0.4536**|**-**|
+
+## 2_gelu_cuda (134217728 elements)
+|Group|Name|Result|Rank|
+|-----|----|------|----|
+|**FAST**|**FAST**|**0.1186**|**-**|
+|**REF**|**REF**|**0.1864**|**-**|
+
+## 3_naive_gemm_cuda (4096 elements)
+|Group|Name|Result|Rank|
+|-----|----|------|----|
+|**FAST**|**FAST**|**0.0710**|**-**|
+|**REF**|**REF**|**0.5748**|**-**|
+
+## 4_block_gemm_cuda (4096 elements)
+|Group|Name|Result|Rank|
+|-----|----|------|----|
+|**FAST**|**FAST**|**0.0695**|**-**|
+|**REF**|**REF**|**0.2981**|**-**|
+
+## 5_gemm_cublas (4096 elements)
+|Group|Name|Result|Rank|
+|-----|----|------|----|
+|**FAST**|**FAST**|**0.0388**|**-**|
+|**REF**|**REF**|**0.0467**|**-**|
+
+## 6_softmax_cuda (8192x16384 elements)
+|Group|Name|Result|Rank|
+|-----|----|------|----|
+|**FAST**|**FAST**|**0.1318**|**-**|
+|**REF**|**REF**|**0.1814**|**-**|
+
+## 7_layernorm_pycuda (8192x16384 elements)
+|Group|Name|Result|Rank|
+|-----|----|------|----|
+|**REF**|**REF**|**0.1930**|**-**|
+
+# Tasks Done
+**Total Passed: 0**
+
+---
+*Maximum Score: 448 (64 per task)*
