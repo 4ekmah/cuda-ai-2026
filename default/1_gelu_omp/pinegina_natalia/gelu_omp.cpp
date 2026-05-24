@@ -1,3 +1,5 @@
+#include "gelu_omp.h"
+
 #include <iostream>
 #include <unistd.h>
 #include <stdio.h>
