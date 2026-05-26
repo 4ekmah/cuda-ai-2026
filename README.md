@@ -431,6 +431,7 @@ One may use numba or C strings to write CUDA kernels.
 |Group|Name|Result|Rank|
 |-----|----|------|----|
 |**FAST**|**FAST**|**0.0695**|**-**|
+|default|smirnov_denis|0.1336|1|
 |**REF**|**REF**|**0.2981**|**-**|
 
 ## 5_gemm_cublas (4096 elements)
@@ -461,7 +462,7 @@ One may use numba or C strings to write CUDA kernels.
 |default|pigasin_dmitry|1/7|48|
 |default|pinegina_natalia|2/7|98|
 |default|pisarevsky_vadim|2/7|126|
-|default|smirnov_denis|3/7|181|
+|default|smirnov_denis|4/7|245|
 |default|vikhrev_ivan|1/7|46|
 |default|zemskov_roman|0/7|0|
 |default|zinoviev_vladimir|3/7|174|
