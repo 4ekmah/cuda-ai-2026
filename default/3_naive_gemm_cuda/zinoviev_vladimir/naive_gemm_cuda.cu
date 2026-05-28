@@ -37,7 +37,7 @@ std::vector<float> NaiveGemmCUDA(const std::vector<float>& a,
     std::vector<float> c(size);
     uint block_size;
     uint num_blocks;
-    block_size = 32;
+    block_size = 16;
     num_blocks = (n + block_size - 1) / block_size;
     float *d_a, *d_b, *d_c;
     cudaMalloc(&d_a, memSize);
