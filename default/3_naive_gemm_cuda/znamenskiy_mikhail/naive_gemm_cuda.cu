@@ -7,9 +7,11 @@ __global__ void NaiveGemmCUDAImpl(const float *a, const float *b, float *c, int 
     int j = blockIdx.x * blockDim.x + threadIdx.x;
 
     if(i < n && j < n) {
+        float sum = 0.0f;
         for (int k = 0; k < n; ++k) {
-            c[i * n + j] += a[i * n + k] * b[k * n + j];
+            sum += a[i * n + k] * b[k * n + j];
         }
+        c[i * n + j] = sum;
     }
 }
 
